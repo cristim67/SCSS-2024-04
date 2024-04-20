@@ -11,8 +11,12 @@
         "@genezio/types": "^1.0.14",
         "@langchain/community": "^0.0.44",
         "@langchain/openai": "^0.0.26",
+        "cheerio": "^1.0.0-rc.12",
         "dotenv": "^16.4.5",
+        "fs": "^0.0.1-security",
         "langchain": "^0.1.31",
+        "path": "^0.12.7",
+        "puppeteer": "^19.11.1",
         "vectordb": "^0.1.19"
     },
     "prettier": {
@@ -20,8 +24,6 @@
     },
     "devDependencies": {
         "@types/node": "^20.12.7",
-        "@typescript-eslint/eslint-plugin": "^6.14.0",
-        "@typescript-eslint/parser": "^6.14.0",
         "eslint": "^8.55.0",
         "tsx": "^4.7.2"
     }
