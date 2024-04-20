@@ -1,14 +1,26 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
-import { BackendService } from "@genezio-sdk/ai-driven";
+import { BackendService } from "@genezio-sdk/langchain-starter";
 import "./App.css";
 
-export default function App() {
-  const [name, setName] = useState("");
-  const [response, setResponse] = useState("");
+const Spinner = () => (
+  <div className="spinner-container">
+    <div className="spinner"></div>
+  </div>
+);
 
-  async function sayHello() {
-    setResponse(await BackendService.hello(name));
+export default function App() {
+  const [question, setQuestion] = useState("");
+  const [response, setResponse] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+
+  async function askOpenAI() {
+    setIsLoading(true);
+    setTimeout(async () => {
+      setResponse(await BackendService.ask(question));
+      setIsLoading(false);
+    }, 10000);
   }
 
   return (
@@ -30,19 +42,26 @@ export default function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Genezio + React = ❤️</h1>
+      <h1>Genezio + OpenAI = ❤️</h1>
       <div className="card">
         <input
           type="text"
           className="input-box"
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Enter your name"
+          onChange={(e) => setQuestion(e.target.value)}
+          placeholder="What's your question?"
         />
         <br />
         <br />
 
-        <button onClick={() => sayHello()}>Say Hello</button>
-        <p className="read-the-docs">{response}</p>
+      <div>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <button onClick={askOpenAI}>Get your answer</button>
+      )}
+      <p className="read-the-docs">{response}</p>
+      </div>
+
       </div>
     </>
   );

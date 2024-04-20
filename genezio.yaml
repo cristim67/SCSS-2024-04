@@ -2,7 +2,7 @@
 # The name of the project.
 name: ai-driven
 # The region where the project is deployed.
-region: eu-north-1
+region: us-east-1
 # The version of the Genezio YAML configuration to parse.
 yamlVersion: 2
 backend:
@@ -14,10 +14,12 @@ backend:
     name: ts
     # The package manager used by the backend.
     packageManager: npm
+    architecture: x86_64
   # Scripts are running in the specified `path` directory.
   scripts:
     # List of scripts to run before deploying the backend.
-    deploy: npm install
+    deploy:
+      - npm install
     # List of scripts to run before starting `genezio local`.
     local: npm install
   # The cloud provider where the backend is deployed.
@@ -42,6 +44,3 @@ frontend:
     # List of scripts that build your frontend before deployment. It should populate the specified `publish` directory.
     build: npm run build
     # List of scripts to run when starting the local development server.
-    start:
-      - npm install --silent
-      - npm run dev --silent
