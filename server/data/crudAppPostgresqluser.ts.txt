@@ -1,6 +1,5 @@
 // server/user.ts
 import { Model } from "sequelize";
-import { GenezioDeploy } from "@genezio/types";
 import { DataTypes, Sequelize } from "sequelize";
 import pg from "pg";
 
@@ -35,10 +34,6 @@ export type AllUsersResponse = {
   err?: string;
 };
 
-/**
- * The User server class that will be deployed on the genezio infrastructure.
- */
-@GenezioDeploy()
 export class UserHandler {
   constructor() {
     this.#connect();

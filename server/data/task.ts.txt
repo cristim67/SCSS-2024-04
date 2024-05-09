@@ -1,8 +1,4 @@
-
 import mongoose from "mongoose";
-import { GenezioDeploy } from "@genezio/types";
-
-
 const taskSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -64,10 +60,6 @@ export type DeleteTaskResponse = {
   err?: string;
 };
 
-/**
- * The Task server class that will be deployed on the genezio infrastructure.
- */
-@GenezioDeploy({ type: "jsonrpc" })
 export class TaskService {
   constructor() {
     this.#connect();

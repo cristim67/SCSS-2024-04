@@ -17,12 +17,15 @@
         "langchain": "^0.1.31",
         "path": "^0.12.7",
         "puppeteer": "^19.11.1",
+        "sequelize": "^6.37.3",
         "vectordb": "^0.1.19"
     },
     "prettier": {
         "tabWidth": 2
     },
     "devDependencies": {
+        "@types/jest": "^29.5.12",
+        "@types/mocha": "^10.0.6",
         "@types/node": "^20.12.7",
         "eslint": "^8.55.0",
         "tsx": "^4.7.2"
